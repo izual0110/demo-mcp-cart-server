@@ -2,7 +2,6 @@ package com.example.demomcpcartserver;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.context.annotation.Bean;
@@ -17,13 +16,9 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@SpringBootTest(properties = {
-        "spring.security.oauth2.client.registration.github.client-id=test-client-id",
-        "spring.security.oauth2.client.registration.github.client-secret=test-client-secret"
-})
 @AutoConfigureMockMvc
 @Import(SecurityE2ETests.TestEndpoints.class)
-class SecurityE2ETests {
+class SecurityE2ETests extends AbstractSpringBootTest {
 
     @Autowired
     private MockMvc mockMvc;
