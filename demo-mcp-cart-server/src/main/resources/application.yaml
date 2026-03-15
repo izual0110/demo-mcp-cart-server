@@ -1,0 +1,29 @@
+server:
+  port: 8080
+
+spring:
+  application.name: demo-mcp-cart-server
+  ai:
+    mcp:
+      server:
+        name: demo-cart-mcp
+        version: 0.0.1
+        instructions: "Demo MCP server for a product cart"
+        protocol: STREAMABLE
+        capabilities:
+          tool: true
+          resource: false
+          prompt: false
+          completion: false
+        streamable-http:
+          mcp-endpoint: /mcp
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:9000
+
+app:
+  security:
+    jwt-secret: "jwt-secret"
