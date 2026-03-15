@@ -20,9 +20,17 @@ spring:
 
   security:
     oauth2:
+      client:
+        registration:
+          github:
+            client-id: ${GITHUB_CLIENT_ID:}
+            client-secret: ${GITHUB_CLIENT_SECRET:}
+            scope:
+              - read:user
+              - user:email
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:9000
+          issuer-uri: ${JWT_ISSUER_URI:http://localhost:9000}
 
 app:
   security:
