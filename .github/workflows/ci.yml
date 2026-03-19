@@ -15,11 +15,11 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up JDK 26
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: '26'
           cache: maven
 
       - name: Run Maven tests
-        run: ./demo-mcp-cart-server/mvnw -B -f demo-mcp-cart-server/pom.xml test
+        run: ./mvnw -B test
